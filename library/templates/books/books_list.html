@@ -44,11 +44,11 @@
         </div>
 {% endfor %}
       <!-------------------------------------------------------------------------------------->
-
+{% if request.user.is_superuser and request.user.is_staff  %}
  <div class="container text-center" style="padding-top: 40px;">
 <a href="{% url 'book_new' %}"><button style="width: 200px; height: 70px;" class="btn btn-warning " >Add</button></a>
   </div>
-
+{% endif %}
 
       </div>
     <!-------------------------------------------------------------------------------------->

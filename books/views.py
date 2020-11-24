@@ -1,10 +1,8 @@
-from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
-from books.models import Book, Category
+from .models import Book, Category
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
-from django.http import Http404
 from django.shortcuts import get_object_or_404
 
 
@@ -37,20 +35,12 @@ class Book_Detail(DetailView):
     model = Book
     context_object_name = "book_detail"
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        # if self.request.user.is_authenticated:
-        #     if Book.objects.filter(user=self.request.user).exists():
-        #         context["download"] = True
-        return context
-
 
 class BookCreate(LoginRequiredMixin, CreateView):
     model = Book
     fields = ['title', 'file', 'photo', 'category', 'description', 'author', 'page', 'isbn', 'publisher', 'year',
               'lanquages', 'country']
     success_url = reverse_lazy('book_list')
-    template_name = 'books/book_form.html'
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -64,21 +54,10 @@ class BookUpdate(LoginRequiredMixin, UpdateView):
     success_url = reverse_lazy('book_list')
 
 
-# def dispatch(self, request, *args, **kwargs):
-# if self.request.user != self.get_object().user:
-#  raise Http404("U can't rewrite чужое")
-#   return super().dispatch(request, *args, **kwargs)
-
-
 class BookDelete(LoginRequiredMixin, DeleteView):
     model = Book
     success_url = reverse_lazy('book_list')
 
-
-# def dispatch(self, request, *args, **kwargs):
-#  if self.request.user != self.get_object().user:
-#  raise Http404("U can't  delete чужое ")
-#  return super().dispatch(request, *args, **kwargs)
 
 class Search_Book(ListView):
     paginate_by = 3

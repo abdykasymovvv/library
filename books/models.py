@@ -1,5 +1,7 @@
 from django.db import models
 
+from library.users.models import User
+
 
 class Category(models.Model):
     name = models.CharField(max_length=50)
@@ -11,7 +13,9 @@ class Category(models.Model):
         verbose_name = "Категория"
         verbose_name_plural = "Категории"
 
+
 class Book(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField("Название", max_length=100, blank=False)
     file = models.FileField(blank=False, upload_to="all_books/")
     photo = models.ImageField("Обложка", upload_to="image/", blank=False)
