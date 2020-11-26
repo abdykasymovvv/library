@@ -21,7 +21,10 @@
         <p class="card-text">ISBN: {{ book_detail.isbn }}</p>
          <p class="card-text"><small class="text-muted">Дата: {{ book_detail.year }}</small></p>
       </div>
+
+      {% if request.user.is_authenticated %}
       <a href="{{ book_detail.file.url}}"><button type="button" class="btn btn-sm btn-outline-secondary">Скачать</button></a>
+        {% endif %}
       {% if request.user.is_superuser and request.user.is_staff %}
       <a href="{% url 'book_delete' book_detail.pk %}"><button type="button" class="btn btn-sm btn-outline-secondary">Удалить</button></a>
       <a href="{% url 'book_update' book_detail.pk %}"><button type="button" class="btn btn-sm btn-outline-secondary">Редактировать</button></a>
