@@ -8,7 +8,7 @@
     <meta name="description" content="our finaly projects">
     <meta name="author" content="Akbar and Erlan">
       <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <link rel="icon" href="{% static 'images/favicons/favicon.ico' %}">
+    <link rel="icon" href="{% static 'images/logo.jfif' %}">
     {% block css %}
       <link rel="stylesheet" href="{% static 'css/project.css' %}">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -31,7 +31,12 @@
       }
     </style>
 
-
+<style>
+   body {
+    color: #2F4F4F;
+     background: #E6E6FA
+   }
+  </style>
   </head>
   <body>
 
@@ -93,9 +98,9 @@
 <main role="main">
 
 {% block libary_title %}
-  <section class="jumbotron text-center">
+  <section class="jumbotron text-center" style="background: #E6E6FA">
     <div class="container">
-      <h1>Библиотека</h1>
+      <h1>Books</h1>
     </div>
   </section>
 {% endblock %}
@@ -103,12 +108,12 @@
 {% block content %}
 
 
-<div class="container" style="max-width: 750px;">
+<div class="container" style="max-width: 1200px;" >
 
-<div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
+<div id="carouselExampleInterval" class="carousel slide" data-ride="carousel" style="width:1200px; ">
   <div class="carousel-inner">
     <div class="carousel-item active" data-interval="10000">
-      <img src="{% static 'images/1.jpg' %}" class="d-block w-100" alt="...">
+      <img src="{% static 'images/1.jpg' %}"class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item" data-interval="2000">
       <img src="{% static 'images/2.jpg' %}" class="d-block w-100" alt="...">
@@ -144,9 +149,14 @@
 
 </main>
   {% block footer %}
-<footer class="text-muted">
+<footer class="text-muted" style="padding: 20px;
+  background-color: #2F4F4F;">
   <div class="container">
-    <p>Rustanov Akbar, Abdykasymov Erlan IT-119 </p>
+    <p>Контакты: Abdykasymov_E@iuca.kg<br>
+      Rustanov_A@iuca.kg<br>
+      Copyrigth by IUCA
+    </p>
+    <a class="logo" href=""><img src="{% static 'images/logo.jfif' %}"  width="120"></a>
   </div>
 </footer>
   {% endblock %}

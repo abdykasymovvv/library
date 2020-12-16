@@ -1,17 +1,34 @@
 {% extends "base.html" %}
-{% block footer %}{% endblock %}
   {% block ggshow %}{% endblock %}
 {% block category %}{% endblock %}
 
 
+
 {% block libary_title %}
 
-   <section class="jumbotron text-center">
+   <section class="jumbotron text-center"; style="background: #E6E6FA">
     <div class="container">
       <h1> Добро пожаловать в Библиотеку IUCA</h1>
 
     </div>
   </section>
 {% endblock %}
- {% block home %}<a class="navbar-brand" href="{% url 'book_list' %}">Books</a> {% endblock %}
 
+ {% block home %}
+
+<a class="navbar-brand" href="{% url 'book_list' %}" >Books</a>
+
+{% endblock %}
+
+
+  {% block footer %}
+<footer class="text-muted" style="padding: 20px;
+  background-color: #2F4F4F;">
+  <div class="container">
+    <p>Контакты: Abdykasymov_E@iuca.kg<br>
+      Rustanov_A@iuca.kg<br>
+      Copyrigth by IUCA
+    </p>
+  </div>
+</footer>
+  {% endblock %}
